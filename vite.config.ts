@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
         strictPort: true,
       },
       plugins: [react()],
+      publicDir: 'public',
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
@@ -23,7 +24,7 @@ export default defineConfig(({ mode }) => {
       build: {
         outDir: 'dist',
         sourcemap: false,
-        minify: 'terser',
+        minify: 'esbuild',
         rollupOptions: {
           output: {
             manualChunks: {
